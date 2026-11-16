@@ -40,9 +40,12 @@ See [ADR-2026-11-16-001](adr/ADR-2026-11-16-001.md).
 
 ## Upstream scaffold files are exempt from the ASCII rule
 
-Two scaffold-generated files contain em-dashes (a UTF-8 dash):
-`.agents/skills/capability-workflows/SKILL.md` (several) and
-`packages/py/utils/src/utils/logging.py` (line 45). The ASCII-only
+Seven scaffold-generated files contain em-dashes (a UTF-8 dash):
+`.agents/skills/capability-workflows/SKILL.md`,
+`.agents/skills/capability-workflows/scripts/linting/rules/determinism.yaml`,
+`.../rules/imports.yaml`, `.../rules/structure.yaml`,
+`packages/py/cli/pyproject.toml`, `packages/py/utils/src/utils/logging.py`,
+and `tools/lib.sh`. The ASCII-only
 rule in AGENTS.md applies to files authored in this repo. Scaffold
 bytes are kept verbatim: mutating them would churn against every
 regeneration with `mistral workflows init`. Do not "fix" them.
