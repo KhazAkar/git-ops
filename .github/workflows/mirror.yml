@@ -1,0 +1,30 @@
+# Pull-mirror of the GitLab primary r3xxar/git-ops into this
+# GitHub repo. Mechanism: lode/adr/ADR-2026-11-16-003.md.
+# No stored secrets: the clone is anonymous (the primary is
+# public), the push uses the ephemeral in-run GITHUB_TOKEN.
+name: mirror-from-gitlab
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mirror
+  cancel-in-progress: true
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Push primary refs to the mirror
+        env:
+          PUSH_URL: "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/KhazAkar/git-ops.git"
+        run: |
+          set -eu
+          git clone --bare https://gitlab.com/r3xxar/git-ops.git
+          cd git-ops.git
+          git push --mirror "$PUSH_URL"

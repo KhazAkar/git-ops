@@ -11,11 +11,15 @@ tag-scoped PAT held by a Mistral Workflow deployment.
 ## Decision index
 
 - [ADR-2026-11-16-001](adr/ADR-2026-11-16-001.md) - GitLab primary,
-  GitHub mirror doctrine (Accepted)
+  GitHub mirror doctrine (Accepted; point 3 superseded by
+  ADR-2026-11-16-003)
 - [ADR-2026-11-16-002](adr/ADR-2026-11-16-002.md) - tag_minter
   workflow specification (Accepted)
+- [ADR-2026-11-16-003](adr/ADR-2026-11-16-003.md) - automated
+  mirror: schedule-driven pull (Accepted)
 - [TASKLIST-ADR-2026-11-16-001](adr/TASKLIST-ADR-2026-11-16-001.md)
 - [TASKLIST-ADR-2026-11-16-002](adr/TASKLIST-ADR-2026-11-16-002.md)
+- [TASKLIST-ADR-2026-11-16-003](adr/TASKLIST-ADR-2026-11-16-003.md)
 
 ## Plan and backlog
 
